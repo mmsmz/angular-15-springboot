@@ -13,4 +13,9 @@ public interface CustomerService {
 
     List<CustomerEntity> getAllCustomerDetails();
 
+    RequestCustomerDto findCustomerById(Integer id);
+
+    String deleteCustomerByID(Integer id);
+
+    RequestCustomerDto getCustomerDetails(RequestCustomerDto customerDto);
 }

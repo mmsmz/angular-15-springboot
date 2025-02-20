@@ -31,5 +31,22 @@ public class CustomerController {
         return new ResponseEntity<>(listOfCustomerDetails, HttpStatus.OK);
     }
 
+    @GetMapping("/customer/{id}")
+    public ResponseEntity<RequestCustomerDto> findCustomerById(@PathVariable Integer id){
+        RequestCustomerDto customerDto =  customerService.findCustomerById(id);
+        return new ResponseEntity<>(customerDto, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/customer/{id}")
+    public ResponseEntity<String> deleteCustomerByID(@PathVariable Integer id){
+        String customerDto =  customerService.deleteCustomerByID(id);
+        return new ResponseEntity<>(customerDto, HttpStatus.OK);
+    }
+
+    @PutMapping("/customer")
+    public ResponseEntity<RequestCustomerDto> updateCustomerByID(@RequestBody RequestCustomerDto customerDto){
+        RequestCustomerDto customerDtos =  customerService.getCustomerDetails(customerDto);
+        return new ResponseEntity<>(customerDtos, HttpStatus.OK);
+    }
 
 }
